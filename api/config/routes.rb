@@ -19,4 +19,7 @@ Rails.application.routes.draw do
   get "/health/ready", to: "health#ready"
   resources :payments, only: [:index, :create, :show]
   post "/webhooks/mock", to: "payments#webhook"
+
+
+  resources :refunds, only: [:index]
 end
