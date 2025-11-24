@@ -1,2 +1,3 @@
 class Refund < ApplicationRecord
+
 end
