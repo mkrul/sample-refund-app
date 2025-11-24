@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2025_11_24_100117) do
+ActiveRecord::Schema[7.1].define(version: 2025_11_24_104932) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
@@ -40,11 +40,12 @@ ActiveRecord::Schema[7.1].define(version: 2025_11_24_100117) do
   create_table "refunds", force: :cascade do |t|
     t.integer "amount_cents", null: false
     t.string "currency", default: "USD", null: false
-    t.string "reason", null: false
     t.bigint "payment_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "refund_reason_id"
     t.index ["payment_id"], name: "index_refunds_on_payment_id"
+    t.index ["refund_reason_id"], name: "index_refunds_on_refund_reason_id"
   end
 
 end

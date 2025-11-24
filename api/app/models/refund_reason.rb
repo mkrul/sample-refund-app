@@ -1,0 +1,2 @@
+class RefundReason < ApplicationRecord
+end
